@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Adres</h1>
+
+    {{ form_start(form) }}
+    {{form_label(form.city)}}
+    <br>
+    {{form_widget(form.city)}}
+    <br>
+    {{form_label(form.street)}}
+    <br>
+    {{form_widget(form.street)}}
+     <br>
+    {{form_label(form.number)}}
+    <br>
+    {{form_widget(form.number)}}
+     <br>
+    {{form_label(form.flatNumber)}}
+    <br>
+    {{form_widget(form.flatNumber)}}
+    <br>
+    {{ form_widget(form) }}
+        <input type="submit" value="Zapisz" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('address_index') }}">Wróć do listy użytkowników</a>
+        </li>
+    </ul>
+{% endblock %}

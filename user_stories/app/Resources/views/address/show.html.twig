@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Address</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ address.id }}</td>
+            </tr>
+            <tr>
+                <th>Miasto</th>
+                <td>{{ address.city }}</td>
+            </tr>
+            <tr>
+                <th>Ulica</th>
+                <td>{{ address.street }}</td>
+            </tr>
+            <tr>
+                <th>Numer domu</th>
+                <td>{{ address.number }}</td>
+            </tr>
+            <tr>
+                <th>Numer mieszkania</th>
+                <td>{{ address.flatNumber }}</td>
+            </tr>
+               <tr>
+                <th>Użytkownik</th>
+                <td>
+                    {{ address.user.fullName|default('Brak użytkownika')}}
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('address_index') }}">Wróć do listy</a>
+        </li>
+        <li>
+            <a href="{{ path('address_edit', { 'id': address.id }) }}">Edytuj</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Usuń">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

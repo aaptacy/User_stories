@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table>
+        <tbody align="left">
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Imię</th>
+                <td>{{ user.name }}</td>
+            </tr>
+            <tr>
+                <th>Nazwisko</th>
+                <td>{{ user.surname }}</td>
+            </tr>
+            <tr>
+                <th>Biografia</th>
+                <td>{{ user.description }}</td>
+            </tr>
+             <tr>
+                <th>Adres/y</th>
+                <td>{%for address in addresses%}
+                {{address.city}}, {{address.street}} {{address.number}}
+                {{address.flatNumber}} <br>             
+                {%endfor%}</td>  
+            </tr>
+            <tr>
+                <th>Adresy email</th>
+                <td>{%for email in emails%}
+                {{email.address}} -- {{email.type}}<br>             
+                {%endfor%}</td>  
+            </tr>
+             <tr>
+                <th>Numery telefonów</th>
+                <td>{%for phone in phones%}
+                {{phone.number}} -- {{phone.type}}<br>             
+                {%endfor%}</td>  
+            </tr>
+            <tr>
+                <th>Grupy</th>
+                <td>{%for group in groups%}
+                {{group.title}}<br>             
+                {%endfor%}</td>  
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+            
+    
+    
+{% endblock %}

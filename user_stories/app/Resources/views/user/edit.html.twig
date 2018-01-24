@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('user_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+            
+    <table> 
+        <tr valign="top">
+            <td>
+                {{ form_start(address_form) }}
+                {{form_label(address_form.city)}}
+                <br>
+                {{form_widget(address_form.city)}}
+                <br>
+                {{form_label(address_form.street)}}
+                <br>
+                {{form_widget(address_form.street)}}
+                 <br>
+                {{form_label(address_form.number)}}
+                <br>
+                {{form_widget(address_form.number)}}
+                 <br>
+                {{form_label(address_form.flatNumber)}}
+                <br>
+                {{form_widget(address_form.flatNumber)}}
+                <br>
+                {{ form_widget(address_form) }}
+                    <input type="submit" value="Zapisz" />
+                {{ form_end(address_form) }}
+            </td>
+            <td width="50"></td>
+            <td>
+                {{ form_start(email_form) }}
+                {{form_label(email_form.address)}}
+                <br>
+                {{form_widget(email_form.address)}}
+                <br>
+                {{form_label(email_form.type)}}
+                <br>
+                {{form_widget(email_form.type)}}
+                <br>
+                <br>
+                {{ form_widget(email_form) }}
+                    <input type="submit" value="Zapisz" />
+                {{ form_end(email_form) }}
+            </td>
+            <td width="50"></td>
+            <td>
+                {{ form_start(phone_form) }}
+                {{form_label(phone_form.number)}}
+                <br>
+                {{form_widget(phone_form.number)}}
+                <br>
+                {{form_label(phone_form.type)}}
+                <br>
+                {{form_widget(phone_form.type)}}
+                <br>
+                <br>
+                {{ form_widget(phone_form) }}
+                    <input type="submit" value="Zapisz" />
+                {{ form_end(phone_form) }}
+            </td>
+            <td width="50"></td>
+            <td>
+                {{ form_start(group_form) }}
+                {{form_label(group_form.title)}}
+                <br>
+                {{form_widget(group_form.title)}}
+                <br>
+                {{ form_widget(group_form) }}
+                    <input type="submit" value="Zapisz" />
+                {{ form_end(group_form) }}
+        </tr>
+   </table>
+{% endblock %}
